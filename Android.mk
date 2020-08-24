@@ -130,12 +130,6 @@ ifeq ($(TARGET_USES_INTERACTION_BOOST),true)
     LOCAL_CFLAGS += -DINTERACTION_BOOST
 endif
 
-ifeq ($(call is-board-platform-in-list,trinket), true)
-LOCAL_MODULE := power.qcom
-LOCAL_MODULE_TAGS := optional
-LOCAL_VENDOR_MODULE := true
-include $(BUILD_SHARED_LIBRARY)
-else
 LOCAL_MODULE := android.hardware.power-service-qti
 LOCAL_INIT_RC := android.hardware.power-service-qti.rc
 LOCAL_MODULE_TAGS := optional
@@ -144,6 +138,5 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_VINTF_FRAGMENTS := power.xml
 
 include $(BUILD_EXECUTABLE)
-endif
 
 endif
